@@ -1,10 +1,10 @@
-package com.example.gfive.data.database
+package com.example.gfive.ui.data.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.gfive.data.database.entities.GroupEntity
+import com.example.gfive.ui.data.database.entities.GroupEntity
 import com.example.gfive.util.Constants.Companion.DATABASE_NAME
 
 

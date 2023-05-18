@@ -1,4 +1,4 @@
-package com.example.gfive.data.database.entities
+package com.example.gfive.ui.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -11,5 +11,5 @@ data class GroupEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val groupName: String,
-    val createDate: Date = Date(),
+    val createDate: Long = System.currentTimeMillis(),
 )

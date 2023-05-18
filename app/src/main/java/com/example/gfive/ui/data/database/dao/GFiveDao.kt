@@ -1,11 +1,11 @@
-package com.example.gfive.data.database.dao
+package com.example.gfive.ui.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.gfive.data.database.entities.GroupEntity
+import com.example.gfive.ui.data.database.entities.GroupEntity
 import kotlinx.coroutines.selects.select
 import kotlinx.coroutines.flow.Flow
 
