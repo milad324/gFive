@@ -13,10 +13,23 @@
         android:id="@+id/deckFragment"
         android:name="com.example.gfive.ui.fragments.deck.DeckFragment"
         android:label="fragment_deck"
-        tools:layout="@layout/fragment_deck" />
+        tools:layout="@layout/fragment_deck" >
+        <action
+            android:id="@+id/action_deckFragment_to_addDeckDialog"
+            app:destination="@id/addDeckDialog" />
+    </fragment>
     <fragment
         android:id="@+id/cardFragment"
         android:name="com.example.gfive.ui.fragments.card.CardFragment"
         android:label="fragment_card"
         tools:layout="@layout/fragment_card" />
+    <dialog
+        android:id="@+id/addDeckDialog"
+        android:name="com.example.gfive.ui.fragments.deck.bottomSheet.AddDeckDialog"
+        android:label="dialog_add_deck"
+        tools:layout="@layout/dialog_add_deck" >
+        <action
+            android:id="@+id/action_addDeckDialog_to_deckFragment"
+            app:destination="@id/deckFragment" />
+    </dialog>
 </navigation>

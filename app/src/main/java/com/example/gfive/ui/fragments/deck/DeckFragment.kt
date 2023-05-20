@@ -5,18 +5,31 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.gfive.R
+import com.example.gfive.databinding.FragmentDeckBinding
 
 
 class DeckFragment : Fragment() {
 
+    private lateinit var binding: FragmentDeckBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_deck, container, false)
+        binding = FragmentDeckBinding.inflate(inflater, container, false)
+        binding.fabAddDeck.setOnClickListener {
+            findNavController().navigate(R.id.action_deckFragment_to_addDeckDialog)
+        }
+
+
+        return binding.root
     }
 
 }
