@@ -5,12 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.gfive.ui.data.database.dao.GFiveDao
-import com.example.gfive.ui.data.database.entities.GroupEntity
+import com.example.gfive.ui.data.database.entities.DeckEntity
 import com.example.gfive.util.Constants.Companion.DATABASE_NAME
 
 
 @Database(
-    entities = [GroupEntity::class], version = 1, exportSchema = false
+    entities = [DeckEntity::class], version = 1, exportSchema = false
 )
 abstract class GFiveDatabase : RoomDatabase() {
     abstract fun gfiveDao(): GFiveDao

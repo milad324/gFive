@@ -5,21 +5,20 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.gfive.ui.data.database.entities.GroupEntity
-import kotlinx.coroutines.selects.select
+import com.example.gfive.ui.data.database.entities.DeckEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface GFiveDao {
     @Insert
-    suspend fun createGroup(groupEntity: GroupEntity)
+    suspend fun createGroup(groupEntity: DeckEntity)
 
     @Update
-    suspend fun updateGroup(groupEntity: GroupEntity)
+    suspend fun updateGroup(groupEntity: DeckEntity)
 
     @Delete
-    suspend fun deleteGroup(groupEntity: GroupEntity)
+    suspend fun deleteGroup(groupEntity: DeckEntity)
 
     @Query("SELECT * FROM tbl_group")
-    suspend fun getAllGroups(): Flow<List<GroupEntity>>
+    fun getAllGroups(): Flow<List<DeckEntity>>
 }
