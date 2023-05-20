@@ -10,8 +10,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.gfive.R
 import com.example.gfive.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Date
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
 

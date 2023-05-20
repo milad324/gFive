@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.gfive.R
 import com.example.gfive.databinding.FragmentDeckBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class DeckFragment : Fragment() {
 
     private lateinit var binding: FragmentDeckBinding

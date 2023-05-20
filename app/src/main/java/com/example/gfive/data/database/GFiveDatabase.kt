@@ -1,11 +1,11 @@
-package com.example.gfive.ui.data.database
+package com.example.gfive.data.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.gfive.ui.data.database.dao.GFiveDao
-import com.example.gfive.ui.data.database.entities.DeckEntity
+import com.example.gfive.data.database.dao.GFiveDao
+import com.example.gfive.data.database.entities.DeckEntity
 import com.example.gfive.util.Constants.Companion.DATABASE_NAME
 
 

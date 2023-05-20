@@ -1,7 +1,7 @@
-package com.example.gfive.ui.data
+package com.example.gfive.data
 
-import com.example.gfive.ui.data.database.dao.GFiveDao
-import com.example.gfive.ui.data.database.entities.DeckEntity
+import com.example.gfive.data.database.dao.GFiveDao
+import com.example.gfive.data.database.entities.DeckEntity
 import javax.inject.Inject
 
 class LocalDataSource @Inject constructor(private val gFiveDao: GFiveDao) {

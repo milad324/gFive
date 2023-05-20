@@ -1,7 +1,7 @@
 package com.example.gfive.di
 
 import android.content.Context
-import com.example.gfive.ui.data.database.GFiveDatabase
+import com.example.gfive.data.database.GFiveDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

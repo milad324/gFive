@@ -1,4 +1,4 @@
-package com.example.gfive.ui.data.database.entities
+package com.example.gfive.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
