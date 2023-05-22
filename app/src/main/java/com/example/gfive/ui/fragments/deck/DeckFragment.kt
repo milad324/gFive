@@ -5,9 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gfive.R
+import com.example.gfive.adapters.DeckAdapter
 import com.example.gfive.databinding.FragmentDeckBinding
+import com.example.gfive.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -15,11 +19,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class DeckFragment : Fragment() {
 
     private lateinit var binding: FragmentDeckBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
+    private val mAdapter: DeckAdapter by lazy { DeckAdapter() }
+    private val mainViewModel: MainViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,8 +31,16 @@ class DeckFragment : Fragment() {
             findNavController().navigate(R.id.action_deckFragment_to_addDeckDialog)
         }
 
-
+        setupRecyclerView()
+        mainViewModel.deckList.observe(viewLifecycleOwner) {
+            mAdapter.setData(it)
+        }
         return binding.root
+    }
+
+    private fun setupRecyclerView() {
+        binding.rvDeck.adapter = mAdapter
+        binding.rvDeck.layoutManager = LinearLayoutManager(requireContext())
     }
 
 }

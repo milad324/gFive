@@ -20,5 +20,5 @@ interface GFiveDao {
     suspend fun deleteGroup(groupEntity: DeckEntity)
 
     @Query("SELECT * FROM tbl_group")
-    fun getAllGroups(): Flow<List<DeckEntity>>
+    fun getAllDecks(): Flow<List<DeckEntity>>
 }

@@ -6,4 +6,7 @@
     <string name="overview">Overview</string>
     <string name="enter_your_deck_name">Enter your deck name</string>
     <string name="add_deck">Add Deck</string>
+    <string name="edite_deck">edite deck</string>
+    <string name="delete_deck">delete deck</string>
+    <string name="play_deck">play deck</string>
 </resources>

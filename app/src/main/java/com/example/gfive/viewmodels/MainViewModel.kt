@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.gfive.data.Repository
 import com.example.gfive.data.database.entities.DeckEntity
@@ -21,6 +22,7 @@ class MainViewModel @Inject constructor(
     private val repository: Repository, application: Application
 ) : AndroidViewModel(application) {
     val deckName = MutableLiveData<String>()
+    val deckList =repository.local.getAllDecks().asLiveData()
 
 
     fun createDeck() {
@@ -38,4 +40,6 @@ class MainViewModel @Inject constructor(
         }
 
     }
+
+
 }

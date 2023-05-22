@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="deckEntity"
+            type="com.example.gfive.data.database.entities.DeckEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/deck_row_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/deck_entity_row_cardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:strokeColor="@color/strokeColor"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="ExtraText">
+
+                <TextView
+                    android:id="@+id/txt_deck_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/alatsi"
+                    android:maxLines="2"
+                    android:text="@{deckEntity.deckName}"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_create_date"
+                    changeLongToStringDate="@{deckEntity.createDate}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/txt_deck_name"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_deck_name" />
+
+                <ImageView
+                    android:id="@+id/edite_deck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:contentDescription="@string/edite_deck"
+                    app:layout_constraintBottom_toBottomOf="@+id/play_deck"
+                    app:layout_constraintEnd_toStartOf="@+id/play_deck"
+                    app:layout_constraintTop_toTopOf="@+id/play_deck"
+                    app:srcCompat="@drawable/ic_edit"
+                    app:tint="@color/yellow"
+                     />
+
+                <ImageView
+                    android:id="@+id/delete_deck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:contentDescription="@string/delete_deck"
+                    app:layout_constraintBottom_toBottomOf="@+id/edite_deck"
+                    app:layout_constraintEnd_toStartOf="@+id/edite_deck"
+                    app:layout_constraintTop_toTopOf="@+id/edite_deck"
+                    app:srcCompat="@drawable/ic_delete"
+                    app:tint="@color/red" />
+
+                <ImageView
+                    android:id="@+id/play_deck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/play_deck"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_create_date"
+                    app:layout_constraintEnd_toEndOf="@+id/txt_deck_name"
+                    app:layout_constraintTop_toTopOf="@+id/txt_create_date"
+                    app:srcCompat="@drawable/ic_play"
+                    app:tint="@color/blue" />
+                />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
