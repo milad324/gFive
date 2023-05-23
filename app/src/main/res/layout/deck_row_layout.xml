@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="8dp">
 
     <data>
 
@@ -66,20 +67,19 @@
                     android:id="@+id/edite_deck"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="32dp"
+                    android:layout_marginEnd="8dp"
                     android:contentDescription="@string/edite_deck"
                     app:layout_constraintBottom_toBottomOf="@+id/play_deck"
                     app:layout_constraintEnd_toStartOf="@+id/play_deck"
                     app:layout_constraintTop_toTopOf="@+id/play_deck"
                     app:srcCompat="@drawable/ic_edit"
-                    app:tint="@color/yellow"
-                     />
+                    app:tint="@color/yellow" />
 
                 <ImageView
                     android:id="@+id/delete_deck"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="32dp"
+                    android:layout_marginEnd="8dp"
                     android:contentDescription="@string/delete_deck"
                     app:layout_constraintBottom_toBottomOf="@+id/edite_deck"
                     app:layout_constraintEnd_toStartOf="@+id/edite_deck"
@@ -91,6 +91,7 @@
                     android:id="@+id/play_deck"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    navigateToCard="@{deckEntity}"
                     android:contentDescription="@string/play_deck"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_create_date"
                     app:layout_constraintEnd_toEndOf="@+id/txt_deck_name"
