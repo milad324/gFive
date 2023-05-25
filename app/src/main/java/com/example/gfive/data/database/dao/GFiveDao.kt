@@ -33,5 +33,5 @@ interface GFiveDao {
 
     @Transaction
     @Query("SELECT * FROM tbl_group  where id == :id")
-    fun getCardByDeckId(id: Int): List<DeckCards>
+    fun getCardByDeckId(id: Int): Flow<DeckCards>
 }
