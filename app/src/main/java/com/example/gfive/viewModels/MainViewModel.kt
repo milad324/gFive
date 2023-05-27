@@ -1,5 +1,6 @@
 package com.example.gfive.viewModels
 
+import android.app.AlertDialog
 import android.app.Application
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
@@ -19,7 +20,7 @@ class MainViewModel @Inject constructor(
     private val repository: Repository, application: Application
 ) : AndroidViewModel(application) {
     val deckName = MutableLiveData<String>()
-    val deckList =repository.local.getAllDecks().asLiveData()
+    val deckList = repository.local.getAllDecks().asLiveData()
 
 
     fun createDeck() {
@@ -38,5 +39,10 @@ class MainViewModel @Inject constructor(
 
     }
 
+    fun deleteDeck(deckEntity: DeckEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.deleteDeck(deckEntity)
+        }
+    }
 
 }

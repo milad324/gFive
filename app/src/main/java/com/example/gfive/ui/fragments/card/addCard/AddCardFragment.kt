@@ -36,7 +36,7 @@ class AddCardFragment : BottomSheetDialogFragment() {
         binding.deck = args.deck
         binding.btnAddCard.setOnClickListener {
 
-            lifecycleScope.launch(Dispatchers.IO) {
+            lifecycleScope.launch{
                 if (viewModel.createCard(
                         binding.editTxtCardQuestion.text.toString(),
                         binding.editTxtCardAnswer.text.toString(),

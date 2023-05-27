@@ -27,5 +27,8 @@ class LocalDataSource @Inject constructor(private val gFiveDao: GFiveDao) {
     suspend fun deleteCard(cardEntity: CardEntity) {
         return gFiveDao.deleteCard(cardEntity)
     }
+    suspend fun deleteDeck(deckEntity: DeckEntity){
+        return gFiveDao.deleteGroup(deckEntity)
+    }
 
 }

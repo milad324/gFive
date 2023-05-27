@@ -7,6 +7,7 @@ import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
 import com.example.gfive.data.database.entities.DeckEntity
 import com.example.gfive.ui.fragments.deck.DeckFragmentDirections
+import java.text.SimpleDateFormat
 import java.util.Date
 
 class DeckRowLayoutBinding {
@@ -15,8 +16,10 @@ class DeckRowLayoutBinding {
         @JvmStatic
         fun changeLongToStringDate(textView: TextView, dateLong: Long) {
             val date = Date(dateLong)
-            textView.text = date.toString()
+            val format = SimpleDateFormat("yyyy-MM-dd HH:mm")
+            textView.text = format.format(date)
         }
+
         @BindingAdapter("navigateToCard")
         @JvmStatic
         fun navigateToCard(imageView: ImageView, deck: DeckEntity) {

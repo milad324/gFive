@@ -17,6 +17,20 @@ class CardRowLayoutBinding {
             }
             textView.text = "Stage : $stage"
         }
+
+        @BindingAdapter("addQuestion")
+        @JvmStatic
+        fun addQuestion(textView: TextView, question: String) {
+
+            textView.text = "question : $question"
+        }
+
+        @BindingAdapter("addAnswer")
+        @JvmStatic
+        fun addAnswer(textView: TextView, question: String) {
+
+            textView.text = "answer : $question"
+        }
     }
 }
 

@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class DeckFragment : Fragment() {
 
     private lateinit var binding: FragmentDeckBinding
-    private val mAdapter: DeckAdapter by lazy { DeckAdapter() }
+    private val mAdapter: DeckAdapter by lazy { DeckAdapter(mainViewModel) }
     private val mainViewModel: MainViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
