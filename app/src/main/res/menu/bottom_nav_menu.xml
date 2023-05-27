@@ -5,9 +5,16 @@
     <item android:title="@string/overview"
         android:icon="@drawable/ic_dashboard"
         android:id="@+id/overviewFragment"
+        app:showAsAction="ifRoom"
         />
     <item android:title="@string/deck"
         android:icon="@drawable/ic_deck"
         android:id="@+id/deckFragment"
+        app:showAsAction="ifRoom"
+        />
+    <item android:title="@string/play"
+        android:icon="@drawable/ic_play"
+        android:id="@+id/playFragment"
+        app:showAsAction="ifRoom"
         />
 </menu>

@@ -54,4 +54,9 @@
             android:id="@+id/action_addCardFragment_to_cardFragment"
             app:destination="@id/cardFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/playFragment"
+        android:name="com.example.gfive.ui.fragments.play.playFragment"
+        android:label="fragment_play"
+        tools:layout="@layout/fragment_play" />
 </navigation>

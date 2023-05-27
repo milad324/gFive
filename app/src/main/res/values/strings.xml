@@ -15,4 +15,5 @@
     <string name="write_your_answer_here">write your answer here</string>
     <string name="write_your_question_here">write your question here</string>
     <string name="delete_card">delete card</string>
+    <string name="play">play</string>
 </resources>
