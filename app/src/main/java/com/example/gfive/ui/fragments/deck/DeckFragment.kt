@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gfive.R
 import com.example.gfive.adapters.DeckAdapter
 import com.example.gfive.databinding.FragmentDeckBinding
-import com.example.gfive.viewmodels.MainViewModel
+import com.example.gfive.viewModels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 

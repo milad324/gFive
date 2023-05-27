@@ -26,10 +26,10 @@ interface GFiveDao {
     fun getAllDecks(): Flow<List<DeckEntity>>
 
     @Insert
-    fun createCard(cardEntity: CardEntity)
+    suspend fun createCard(cardEntity: CardEntity)
 
     @Delete
-    fun deleteCard(cardEntity: CardEntity)
+    suspend fun deleteCard(cardEntity: CardEntity)
 
     @Transaction
     @Query("SELECT * FROM tbl_group  where id == :id")

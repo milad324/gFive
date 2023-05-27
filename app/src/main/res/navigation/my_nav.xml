@@ -29,6 +29,9 @@
         <argument
             android:name="deck"
             app:argType="com.example.gfive.data.database.entities.DeckEntity" />
+        <action
+            android:id="@+id/action_cardFragment_to_addCardFragment"
+            app:destination="@id/addCardFragment" />
     </fragment>
     <dialog
         android:id="@+id/addDeckDialog"
@@ -38,5 +41,17 @@
         <action
             android:id="@+id/action_addDeckDialog_to_deckFragment"
             app:destination="@id/deckFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/addCardFragment"
+        android:name="com.example.gfive.ui.fragments.card.addCard.AddCardFragment"
+        android:label="fragment_add_card"
+        tools:layout="@layout/fragment_add_card" >
+        <argument
+            android:name="deck"
+            app:argType="com.example.gfive.data.database.entities.DeckEntity" />
+        <action
+            android:id="@+id/action_addCardFragment_to_cardFragment"
+            app:destination="@id/cardFragment" />
     </dialog>
 </navigation>

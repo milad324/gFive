@@ -1,15 +1,12 @@
 package com.example.gfive.ui.fragments.deck.bottomSheet
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.example.gfive.R
 import com.example.gfive.databinding.DialogAddDeckBinding
-import com.example.gfive.databinding.FragmentDeckBinding
-import com.example.gfive.viewmodels.MainViewModel
+import com.example.gfive.viewModels.MainViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 

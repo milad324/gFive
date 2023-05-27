@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.example.gfive.util.Constants.Companion.TABLE_CARD
+import java.time.Instant
 
 
 @Entity(

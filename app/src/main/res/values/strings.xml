@@ -9,4 +9,10 @@
     <string name="edite_deck">edite deck</string>
     <string name="delete_deck">delete deck</string>
     <string name="play_deck">play deck</string>
+    <string name="card_question">card question :</string>
+    <string name="card_answer">card answer :</string>
+    <string name="add_card">Add Card</string>
+    <string name="write_your_answer_here">write your answer here</string>
+    <string name="write_your_question_here">write your question here</string>
+    <string name="delete_card">delete card</string>
 </resources>
