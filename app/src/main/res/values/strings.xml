@@ -16,4 +16,7 @@
     <string name="write_your_question_here">write your question here</string>
     <string name="delete_card">delete card</string>
     <string name="play">play</string>
+    <string name="show_answer">show answer</string>
+    <string name="i_know_the_answer">I know</string>
+    <string name="i_don_t_know">I don\'t know</string>
 </resources>

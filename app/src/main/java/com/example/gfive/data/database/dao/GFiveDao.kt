@@ -34,4 +34,12 @@ interface GFiveDao {
     @Transaction
     @Query("SELECT * FROM tbl_group  where id == :id")
     fun getCardByDeckId(id: Int): Flow<DeckCards>
+
+    @Query("SELECT * FROM tbl_card where visitTime<= :currentTime order by visitTime desc")
+    fun cardsNeedToVisit(currentTime: Long): Flow<List<CardEntity>>
+
+    @Update
+    suspend fun updateCard(cardEntity: CardEntity)
+
+
 }

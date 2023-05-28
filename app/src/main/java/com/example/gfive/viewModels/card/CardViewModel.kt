@@ -29,7 +29,6 @@ class CardViewModel @Inject constructor(
     fun getCardsByDeckId(id: Int) {
         cards = repository.local.getCardByDeckName(id).asLiveData() as MutableLiveData<DeckCards>
     }
-
     suspend fun createCard(question: String, answer: String, deckId: Int): Boolean {
         viewModelScope.let {
             return if (question.isNotEmpty() && answer.isNotEmpty()) {
@@ -39,7 +38,8 @@ class CardViewModel @Inject constructor(
                     answer = answer,
                     state = 1,
                     deck_Id = deckId,
-                    visitTime = TimeManager.getTimeWithAddDays(1)
+                    visitTime = TimeManager.getTimeWithAddDays(1),
+                    totalVisit = 0
                 )
                 repository.local.insertCard(card)
                 true

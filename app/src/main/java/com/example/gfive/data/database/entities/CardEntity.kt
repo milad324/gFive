@@ -25,6 +25,7 @@ data class CardEntity(
     var answer: String,
     var state: Short,
     var visitTime: Long,
+    var totalVisit: Int,
     @ColumnInfo(index = true)
     var deck_Id: Int
 )

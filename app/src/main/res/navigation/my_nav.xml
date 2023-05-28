@@ -56,7 +56,7 @@
     </dialog>
     <fragment
         android:id="@+id/playFragment"
-        android:name="com.example.gfive.ui.fragments.play.playFragment"
+        android:name="com.example.gfive.ui.fragments.play.PlayFragment"
         android:label="fragment_play"
         tools:layout="@layout/fragment_play" />
 </navigation>
