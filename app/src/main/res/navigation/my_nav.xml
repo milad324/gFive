@@ -58,5 +58,13 @@
         android:id="@+id/playFragment"
         android:name="com.example.gfive.ui.fragments.play.PlayFragment"
         android:label="fragment_play"
-        tools:layout="@layout/fragment_play" />
+        tools:layout="@layout/fragment_play" >
+        <action
+            android:id="@+id/action_playFragment_to_doneFragment"
+            app:destination="@id/doneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/doneFragment"
+        android:name="com.example.gfive.ui.fragments.play.done.DoneFragment"
+        android:label="DoneFragment" />
 </navigation>

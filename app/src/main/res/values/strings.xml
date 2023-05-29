@@ -19,4 +19,6 @@
     <string name="show_answer">show answer</string>
     <string name="i_know_the_answer">I know</string>
     <string name="i_don_t_know">I don\'t know</string>
+    <string name="well_done">Well Done !</string>
+    <string name="there_are_no_questions_to_answer">There are no questions to answer</string>
 </resources>

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.gfive.R
 import com.example.gfive.databinding.FragmentCardBinding
 import com.example.gfive.databinding.FragmentPlayBinding
@@ -29,11 +30,15 @@ class PlayFragment : Fragment() {
             it.visibility = View.GONE
         }
         viewModel.allCardCanShow.observe(viewLifecycleOwner) {
-            Log.d("milad", it.toString())
+            binding.btnShowAnswer.visibility = View.VISIBLE
+            binding.txtPlayQuestion.visibility = View.GONE
             if (it.isNotEmpty()) {
-                 binding.card = it.first()
+                binding.card = it.first()
+            } else {
+                findNavController().navigate(PlayFragmentDirections.actionPlayFragmentToDoneFragment())
             }
         }
+        binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
         return binding.root
