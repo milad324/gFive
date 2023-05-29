@@ -21,7 +21,9 @@ class MainViewModel @Inject constructor(
 ) : AndroidViewModel(application) {
     val deckName = MutableLiveData<String>()
     val deckList = repository.local.getAllDecks().asLiveData()
-
+    val todayCardNumber = repository.local.countCardsNeedToVisit().asLiveData()
+    val totalCardNumber = repository.local.countCard().asLiveData()
+    val totalDeckNumber = repository.local.countDeck().asLiveData()
 
     fun createDeck() {
         if (deckName.value != null) {

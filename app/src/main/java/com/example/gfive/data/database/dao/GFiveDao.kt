@@ -41,5 +41,14 @@ interface GFiveDao {
     @Update
     suspend fun updateCard(cardEntity: CardEntity)
 
+    @Query("SELECT COUNT(id) FROM tbl_card where visitTime<= :currentTime")
+    fun countCardsNeedToVisit(currentTime: Long): Flow<Int>
+
+    @Query("SELECT COUNT(id) FROM tbl_group")
+    fun countDeck(): Flow<Int>
+
+    @Query("SELECT COUNT(id) FROM tbl_card")
+    fun countCard(): Flow<Int>
+
 
 }
