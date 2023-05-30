@@ -33,6 +33,10 @@ class LocalDataSource @Inject constructor(private val gFiveDao: GFiveDao) {
         return gFiveDao.deleteGroup(deckEntity)
     }
 
+    suspend fun editDeck(deckEntity: DeckEntity) {
+        return gFiveDao.updateGroup(deckEntity)
+    }
+
     fun cardsNeedToVisit(): Flow<List<CardEntity>> {
         return gFiveDao.cardsNeedToVisit(System.currentTimeMillis())
     }

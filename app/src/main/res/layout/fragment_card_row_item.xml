@@ -33,7 +33,7 @@
                 android:layout_marginEnd="4dp"
                 android:ellipsize="end"
                 android:maxLines="2"
-                app:layout_constraintEnd_toStartOf="@+id/imageButton"
+                app:layout_constraintEnd_toStartOf="@+id/btn_edit_card"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="4dp"
-                app:layout_constraintEnd_toStartOf="@+id/imageButton"
+                app:layout_constraintEnd_toStartOf="@+id/btn_edit_card"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/txt_card_question"
                 app:layout_constraintTop_toBottomOf="@+id/txt_card_question"
@@ -81,6 +81,19 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_delete"
                 app:tint="@color/red" />
+
+            <ImageButton
+                android:id="@+id/btn_edit_card"
+                editeCard="@{card}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/delete_card"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_delete_card"
+                app:layout_constraintEnd_toStartOf="@+id/btn_delete_card"
+                app:layout_constraintTop_toTopOf="@+id/btn_delete_card"
+                app:srcCompat="@drawable/ic_edit"
+                app:tint="@color/green" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 

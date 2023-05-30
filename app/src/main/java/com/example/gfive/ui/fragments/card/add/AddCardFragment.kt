@@ -1,24 +1,18 @@
-package com.example.gfive.ui.fragments.card.addCard
+package com.example.gfive.ui.fragments.card.add
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.gfive.R
 import com.example.gfive.databinding.FragmentAddCardBinding
-import com.example.gfive.ui.fragments.card.CardFragmentArgs
 import com.example.gfive.viewModels.card.CardViewModel
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 

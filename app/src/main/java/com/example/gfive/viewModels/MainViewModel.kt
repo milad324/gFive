@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.gfive.data.Repository
+import com.example.gfive.data.database.entities.CardEntity
 import com.example.gfive.data.database.entities.DeckEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -44,6 +45,18 @@ class MainViewModel @Inject constructor(
     fun deleteDeck(deckEntity: DeckEntity) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.deleteDeck(deckEntity)
+        }
+    }
+
+    fun editDeck(deckEntity: DeckEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.editDeck(deckEntity)
+        }
+    }
+
+    fun editCard(card: CardEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.updateCard(card)
         }
     }
 

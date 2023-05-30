@@ -1,5 +1,6 @@
 package com.example.gfive.bindingadapters
 
+import android.util.Log
 import android.widget.AutoCompleteTextView
 import android.widget.ImageView
 import android.widget.TextView
@@ -25,6 +26,15 @@ class DeckRowLayoutBinding {
         fun navigateToCard(imageView: ImageView, deck: DeckEntity) {
             imageView.setOnClickListener {
                 var action = DeckFragmentDirections.actionDeckFragmentToCardFragment(deck)
+                imageView.findNavController().navigate(action)
+            }
+        }
+
+        @BindingAdapter("editeDeck")
+        @JvmStatic
+        fun editeDeck(imageView: ImageView, deck: DeckEntity) {
+            imageView.setOnClickListener {
+                val action = DeckFragmentDirections.actionDeckFragmentToEditDeckFragment(deck)
                 imageView.findNavController().navigate(action)
             }
         }

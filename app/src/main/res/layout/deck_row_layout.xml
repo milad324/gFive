@@ -65,6 +65,7 @@
 
                 <ImageView
                     android:id="@+id/edite_deck"
+                    editeDeck="@{deckEntity}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -89,9 +90,9 @@
 
                 <ImageView
                     android:id="@+id/play_deck"
+                    navigateToCard="@{deckEntity}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    navigateToCard="@{deckEntity}"
                     android:contentDescription="@string/play_deck"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_create_date"
                     app:layout_constraintEnd_toEndOf="@+id/txt_deck_name"

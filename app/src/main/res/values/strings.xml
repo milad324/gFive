@@ -26,4 +26,5 @@
     <string name="today_cards">Today Cards :</string>
     <string name="total_cards">Total Cards :</string>
     <string name="total_decks">Total Decks :</string>
+    <string name="edit_card">Edit Card</string>
 </resources>

@@ -12,6 +12,6 @@ import kotlinx.android.parcel.Parcelize
 data class DeckEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val deckName: String,
+    var deckName: String,
     val createDate: Long = System.currentTimeMillis(),
 ): Parcelable
