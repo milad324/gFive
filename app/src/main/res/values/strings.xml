@@ -27,4 +27,8 @@
     <string name="total_cards">Total Cards :</string>
     <string name="total_decks">Total Decks :</string>
     <string name="edit_card">Edit Card</string>
+    <string name="i_forgot">I forgot</string>
+    <string name="hard">hard</string>
+    <string name="easy">easy</string>
+    <string name="very_easy">very easy</string>
 </resources>

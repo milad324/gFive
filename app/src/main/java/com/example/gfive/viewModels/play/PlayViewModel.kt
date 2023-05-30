@@ -19,16 +19,29 @@ class PlayViewModel @Inject constructor(private val repository: Repository) : Vi
     val allCardCanShow =
         repository.local.cardsNeedToVisit().asLiveData()
 
-    fun setAnswer(cardEntity: CardEntity, status: Boolean) {
+    fun setAnswer(cardEntity: CardEntity, status: Int) {
         cardEntity.totalVisit++
-        if (status) {
-            val nextDayVisit = 2.toDouble().pow(cardEntity.state.toDouble())
-            cardEntity.visitTime = TimeManager.getTimeWithAddDays(nextDayVisit.toInt())
-            cardEntity.state++
-
-        } else {
-            cardEntity.state = 1
-            cardEntity.visitTime = TimeManager.getTimeWithAddDays(1)
+        when(status){
+            1->{
+                val nextDayVisit = 2.toDouble().pow(cardEntity.state+1)
+                cardEntity.visitTime = TimeManager.getTimeWithAddDays(nextDayVisit.toInt())
+                cardEntity.state= (cardEntity.state+2).toShort()
+            }
+            2->{
+                val nextDayVisit = 2.toDouble().pow(cardEntity.state.toInt())
+                cardEntity.visitTime = TimeManager.getTimeWithAddDays(nextDayVisit.toInt())
+                cardEntity.state++
+            }
+            3->{
+                val nextDayVisit = 1
+                cardEntity.visitTime = TimeManager.getTimeWithAddDays(nextDayVisit.toInt())
+                cardEntity.state++
+            }
+            4->{
+                val nextDayVisit = 1
+                cardEntity.visitTime = TimeManager.getTimeWithAddDays(nextDayVisit.toInt())
+                cardEntity.state=1
+            }
         }
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.updateCard(cardEntity)
