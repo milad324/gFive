@@ -10,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.gfive.data.Repository
 import com.example.gfive.data.database.entities.CardEntity
 import com.example.gfive.data.database.entities.DeckEntity
+import com.example.gfive.util.TextToSpeech
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -25,7 +26,7 @@ class MainViewModel @Inject constructor(
     val todayCardNumber = repository.local.countCardsNeedToVisit().asLiveData()
     val totalCardNumber = repository.local.countCard().asLiveData()
     val totalDeckNumber = repository.local.countDeck().asLiveData()
-
+    val speaker = TextToSpeech(application)
     fun createDeck() {
         if (deckName.value != null) {
             val deckEntity = DeckEntity(0, deckName = deckName.value!!)
@@ -58,6 +59,10 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.updateCard(card)
         }
+    }
+
+    fun readText(text: String) {
+        speaker.speakOut(text)
     }
 
 }
