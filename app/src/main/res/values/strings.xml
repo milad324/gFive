@@ -31,4 +31,8 @@
     <string name="hard">hard</string>
     <string name="easy">easy</string>
     <string name="very_easy">very easy</string>
+    <string name="unseen">unseen</string>
+    <string name="first_seen">First seen</string>
+    <string name="second_seen">second seen</string>
+    <string name="third_seen">third seen</string>
 </resources>

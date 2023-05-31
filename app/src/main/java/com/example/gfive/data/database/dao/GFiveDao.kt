@@ -7,6 +7,8 @@ import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
 import com.example.gfive.data.database.entities.CardEntity
+import com.example.gfive.data.database.entities.CardVisitEntity
+import com.example.gfive.data.database.entities.DeckCardStatus
 import com.example.gfive.data.database.entities.DeckCards
 import com.example.gfive.data.database.entities.DeckEntity
 import kotlinx.coroutines.flow.Flow
@@ -49,6 +51,12 @@ interface GFiveDao {
 
     @Query("SELECT COUNT(id) FROM tbl_card")
     fun countCard(): Flow<Int>
+
+    @Query("SELECT (SELECT COUNT(*) FROM tbl_card where totalVisit== 0 and deck_Id==:id ) as Unseen,(SELECT COUNT(*) FROM tbl_card where state== 1 and deck_Id==:id and visitTime!=0 ) as first, (SELECT COUNT(*) FROM tbl_card where state== 2 and deck_Id==:id ) as second,(SELECT COUNT(*) FROM tbl_card where state== 3 and deck_Id==:id ) as third,(SELECT COUNT(*) FROM tbl_card where state== 3 and deck_Id==:id ) as permanent")
+    fun deckCardStatus(id: Int): Flow<DeckCardStatus>
+
+    @Insert
+    fun createCardVisit(cardVisitEntity: CardVisitEntity)
 
 
 }

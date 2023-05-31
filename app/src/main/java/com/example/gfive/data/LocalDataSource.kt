@@ -3,6 +3,8 @@ package com.example.gfive.data
 import androidx.room.Query
 import com.example.gfive.data.database.dao.GFiveDao
 import com.example.gfive.data.database.entities.CardEntity
+import com.example.gfive.data.database.entities.CardVisitEntity
+import com.example.gfive.data.database.entities.DeckCardStatus
 import com.example.gfive.data.database.entities.DeckCards
 import com.example.gfive.data.database.entities.DeckEntity
 import kotlinx.coroutines.flow.Flow
@@ -55,6 +57,14 @@ class LocalDataSource @Inject constructor(private val gFiveDao: GFiveDao) {
 
     fun countCard(): Flow<Int> {
         return gFiveDao.countCard()
+    }
+
+    fun deckCardStatus(id: Int): Flow<DeckCardStatus> {
+        return gFiveDao.deckCardStatus(id)
+    }
+
+    fun cardVisitInsert(cardVisitEntity: CardVisitEntity) {
+        return gFiveDao.createCardVisit(cardVisitEntity)
     }
 
 }
