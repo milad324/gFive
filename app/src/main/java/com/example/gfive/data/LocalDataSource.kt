@@ -19,7 +19,7 @@ class LocalDataSource @Inject constructor(private val gFiveDao: GFiveDao) {
         return gFiveDao.getAllDecks()
     }
 
-    fun getCardByDeckName(id: Int): Flow<DeckCards> {
+    fun getCardByDeckName(id: Int):Flow<DeckCards > {
         return gFiveDao.getCardByDeckId(id)
     }
 

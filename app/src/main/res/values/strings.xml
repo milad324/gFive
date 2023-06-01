@@ -35,4 +35,6 @@
     <string name="first_seen">First seen</string>
     <string name="second_seen">second seen</string>
     <string name="third_seen">third seen</string>
+    <string name="restore_database">restore database</string>
+    <string name="backup_database">backup database</string>
 </resources>

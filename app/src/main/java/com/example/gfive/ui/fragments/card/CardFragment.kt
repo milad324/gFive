@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.gfive.adapters.CardAdapter
@@ -14,6 +15,7 @@ import com.example.gfive.databinding.FragmentCardBinding
 import com.example.gfive.viewModels.card.CardViewModel
 import com.example.gfive.viewModels.deck.DeckViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -37,19 +39,25 @@ class CardFragment : Fragment() {
             val action = CardFragmentDirections.actionCardFragmentToAddCardFragment(args.deck)
             findNavController().navigate(action)
         }
-        loadCardByDeck()
         viewModel.cards.observe(viewLifecycleOwner) {
             mAdapter.setData(it.cards)
         }
         deckViewModel.deckStatus.observe(viewLifecycleOwner) {
             Log.d("milad", it.toString())
+            binding.deckCardStatus = it
         }
+        loadCardByDeck()
         return binding.root
     }
 
+
     private fun loadCardByDeck() {
-        viewModel.getCardsByDeckId(args.deck.id)
-        deckViewModel.getDeckCardStatus(args.deck.id)
+        lifecycleScope.launch {
+            deckViewModel.getDeckCardStatus(args.deck.id)
+        }
+        lifecycleScope.launch {
+            viewModel.getCardsByDeckId(args.deck.id)
+        }
     }
 
 }

@@ -33,7 +33,7 @@ interface GFiveDao {
     @Delete
     suspend fun deleteCard(cardEntity: CardEntity)
 
-    @Transaction
+
     @Query("SELECT * FROM tbl_group  where id == :id")
     fun getCardByDeckId(id: Int): Flow<DeckCards>
 
@@ -52,7 +52,7 @@ interface GFiveDao {
     @Query("SELECT COUNT(id) FROM tbl_card")
     fun countCard(): Flow<Int>
 
-    @Query("SELECT (SELECT COUNT(*) FROM tbl_card where totalVisit== 0 and deck_Id==:id ) as Unseen,(SELECT COUNT(*) FROM tbl_card where state== 1 and deck_Id==:id and visitTime!=0 ) as first, (SELECT COUNT(*) FROM tbl_card where state== 2 and deck_Id==:id ) as second,(SELECT COUNT(*) FROM tbl_card where state== 3 and deck_Id==:id ) as third,(SELECT COUNT(*) FROM tbl_card where state== 3 and deck_Id==:id ) as permanent")
+    @Query("SELECT (SELECT COUNT(*) FROM tbl_card where totalVisit== 0 and deck_Id==:id ) as Unseen,(SELECT COUNT(*) FROM tbl_card where state== 1 and deck_Id==:id and totalVisit!=0 ) as first, (SELECT COUNT(*) FROM tbl_card where state== 2 and deck_Id==:id ) as second,(SELECT COUNT(*) FROM tbl_card where state== 3 and deck_Id==:id ) as third,(SELECT COUNT(*) FROM tbl_card where state== 3 and deck_Id==:id ) as permanent")
     fun deckCardStatus(id: Int): Flow<DeckCardStatus>
 
     @Insert

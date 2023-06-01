@@ -1,7 +1,10 @@
 package com.example.gfive.viewModels.card
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -12,6 +15,7 @@ import com.example.gfive.data.database.entities.DeckCards
 import com.example.gfive.util.TimeManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.LocalDateTime
@@ -25,10 +29,15 @@ import javax.inject.Inject
 class CardViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
-    var cards = MutableLiveData<DeckCards>()
-    fun getCardsByDeckId(id: Int) {
-        cards = repository.local.getCardByDeckName(id).asLiveData() as MutableLiveData<DeckCards>
+    val cards = MutableLiveData<DeckCards>()
+    suspend fun getCardsByDeckId(id: Int) {
+        viewModelScope.let {
+            repository.local.getCardByDeckName(id).collect {
+                cards.value = it
+            }
+        }
     }
+
     suspend fun createCard(question: String, answer: String, deckId: Int): Boolean {
         viewModelScope.let {
             return if (question.isNotEmpty() && answer.isNotEmpty()) {
