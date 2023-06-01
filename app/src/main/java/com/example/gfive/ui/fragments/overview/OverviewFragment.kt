@@ -48,6 +48,14 @@ class OverviewFragment : Fragment(), MenuProvider {
         menuInflater.inflate(R.menu.overview_menu,menu)
     }
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        when(menuItem.itemId){
+            R.id.create_backup->{
+                this.context?.let { viewModel.backupDatabase(it) }
+            }
+            R.id.restore_database->{
+                this.context?.let { viewModel.restoreDatabase(it) }
+            }
+        }
         return false
     }
 

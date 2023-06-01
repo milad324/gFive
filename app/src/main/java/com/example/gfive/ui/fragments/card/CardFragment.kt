@@ -43,7 +43,6 @@ class CardFragment : Fragment() {
             mAdapter.setData(it.cards)
         }
         deckViewModel.deckStatus.observe(viewLifecycleOwner) {
-            Log.d("milad", it.toString())
             binding.deckCardStatus = it
         }
         loadCardByDeck()
