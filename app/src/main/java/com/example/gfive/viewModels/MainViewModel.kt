@@ -13,6 +13,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.gfive.data.Repository
 import com.example.gfive.data.database.entities.CardEntity
 import com.example.gfive.data.database.entities.DeckEntity
+import com.example.gfive.util.Constants.Companion.BACKUP_DB_PATH
 import com.example.gfive.util.Constants.Companion.DATABASE_NAME
 import com.example.gfive.util.TextToSpeech
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -79,9 +80,8 @@ class MainViewModel @Inject constructor(
             val backupDir = File(Environment.getExternalStorageDirectory(), "/backup")
            Log.d("milad","123")
             if (backupDir.canWrite()) {
-
                 val currentDBPath = context.getDatabasePath(DATABASE_NAME).absolutePath
-                val backupDBPath = "backupname.db"
+                val backupDBPath = BACKUP_DB_PATH
                 val backupDB = File(backupDir, backupDBPath)
                 if (backupDB.exists()) {
                     backupDB.delete()
@@ -109,7 +109,7 @@ class MainViewModel @Inject constructor(
             val backupDir = File(Environment.getExternalStorageDirectory(), "/backup")
             if (backupDir.canWrite()) {
                 val currentDBPath = context.getDatabasePath(DATABASE_NAME).absolutePath
-                val backupDBPath = "backupname.db"
+                val backupDBPath = BACKUP_DB_PATH
                 val backupDB = File(backupDir, backupDBPath)
                 if (backupDB.exists()) {
                     val src = FileInputStream(backupDB).channel
